@@ -1,0 +1,948 @@
+/* ==================== Language Selector ==================== */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+}
+
+.lang-btn {
+    padding: 8px 14px;
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn:hover {
+    background: var(--light-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+/* ==================== Login Modal ==================== */
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.login-modal.hidden {
+    display: none;
+}
+
+.login-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.login-btn {
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.login-error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-left: 4px solid #dc2626;
+}
+
+.login-info {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* ==================== User Info & Logout ==================== */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(30, 64, 175, 0.1);
+    border-radius: 6px;
+}
+
+.user-name {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.logout-icon {
+    font-size: 1.1rem;
+}
+
+/* ==================== Edit Mode Toggle ==================== */
+.edit-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.edit-toggle-btn, .reset-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.edit-toggle-btn:hover, .reset-btn:hover {
+    background: #1a2d7a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+}
+
+.edit-toggle-btn.active {
+    background: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.reset-btn {
+    background: var(--warning-color);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+}
+
+.reset-btn:hover {
+    background: #d97706;
+    box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
+}
+
+.edit-icon, .reset-icon {
+    font-size: 1.1rem;
+}
+
+/* Estilos para elementos editaveis */
+.editable-mode [data-editable="true"] {
+    position: relative;
+    cursor: text;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.editable-mode [data-editable="true"]:hover {
+    background-color: rgba(30, 64, 175, 0.1);
+    outline: 2px dashed var(--primary-color);
+}
+
+.editable-mode [data-editable="true"].editing {
+    background-color: rgba(30, 64, 175, 0.15);
+    outline: 2px solid var(--primary-color);
+}
+
+/* ==================== Reset e Variáveis ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1e40af;
+    --secondary-color: #0f766e;
+    --accent-color: #dc2626;
+    --light-bg: #f8fafc;
+    --dark-bg: #1e293b;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #16a34a;
+    --warning-color: #ea580c;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== Tipografia ==================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ==================== Container ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ==================== Header ==================== */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin-bottom: 0.25rem;
+    font-size: 2rem;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(15, 118, 110, 0.05) 100%);
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* ==================== KPIs Section ==================== */
+.kpis-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.kpi-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* ==================== Content Sections ==================== */
+.content-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.challenge-section {
+    background-color: #f0f9ff;
+}
+
+.strategy-section {
+    background-color: #f0fdf4;
+}
+
+.results-section {
+    background-color: #fef3c7;
+}
+
+.consolidation-section {
+    background-color: #f5f3ff;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.metric-highlight {
+    background: white;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.metric-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ==================== Results Grid ==================== */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.result-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+}
+
+.result-metric {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.result-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.result-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* ==================== Participation Chart ==================== */
+.participation-chart {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.chart-item {
+    margin-bottom: 2rem;
+}
+
+.chart-item:last-child {
+    margin-bottom: 0;
+}
+
+.chart-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.chart-bar {
+    background-color: var(--border-color);
+    border-radius: 8px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.bar-segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: width 0.5s ease;
+}
+
+.bar-segment.before {
+    background: linear-gradient(90deg, var(--warning-color) 0%, var(--warning-color) 100%);
+}
+
+.bar-segment.after {
+    background: linear-gradient(90deg, var(--success-color) 0%, var(--success-color) 100%);
+}
+
+/* ==================== Summary Table ==================== */
+.summary-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.summary-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+th {
+    padding: 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+td {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+tbody tr:hover {
+    background-color: var(--light-bg);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==================== Conclusion Section ==================== */
+.conclusion-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(15, 118, 110, 0.05) 100%);
+    text-align: center;
+}
+
+.conclusion-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+/* ==================== Language Selector Responsive ==================== */
+@media (max-width: 768px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==================== Responsividade ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .kpis-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .kpi-card {
+        padding: 1.5rem;
+    }
+
+    .kpi-value {
+        font-size: 2rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-highlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .edit-mode-toggle {
+        top: 10px;
+        right: 10px;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .edit-toggle-btn, .reset-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .edit-icon, .reset-icon {
+        font-size: 0.95rem;
+    }
+
+    .edit-text, .reset-text {
+        display: none;
+    }
+
+    .user-info {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .user-name {
+        font-size: 0.8rem;
+    }
+
+    .logout-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .login-container {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .kpis-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .kpi-card {
+        padding: 1rem;
+    }
+
+    .kpi-value {
+        font-size: 1.75rem;
+    }
+
+    .kpi-label {
+        font-size: 0.85rem;
+    }
+
+    .content-section {
+        padding: 2rem 0;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .metric-highlight {
+        padding: 1rem;
+    }
+
+    .metric-value {
+        font-size: 1.5rem;
+    }
+
+    .result-metric {
+        font-size: 1.75rem;
+    }
+
+    .participation-chart {
+        padding: 1rem;
+    }
+
+    .chart-bar {
+        height: 35px;
+    }
+
+    .bar-segment {
+        padding-right: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .summary-section {
+        padding: 2rem 0;
+    }
+
+    .conclusion-section {
+        padding: 2rem 0;
+    }
+
+    .conclusion-text {
+        font-size: 0.95rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+    }
+
+    .login-container {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input {
+        font-size: 16px;
+    }
+
+    .edit-mode-toggle {
+        top: 5px;
+        right: 5px;
+    }
+
+    .user-info {
+        display: none;
+    }
+}
+
+/* ==================== Animações ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.kpi-card, .result-item, .metric-highlight {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+    .header {
+        background: var(--primary-color);
+    }
+
+    .edit-mode-toggle, .login-modal {
+        display: none;
+    }
+
+    .kpi-card, .result-item, .metric-highlight {
+        page-break-inside: avoid;
+    }
+
+    body {
+        background: white;
+    }
+}
